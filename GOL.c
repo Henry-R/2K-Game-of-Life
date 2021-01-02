@@ -69,7 +69,9 @@ int main()
     int o[2] = { 0, 0 };
     // Used to store sign
     int offset;
-    while (ch != 'x')
+    do 
+    {
+        ch = fgetc(fp);
         if (fgetc(fp) == 'P')
         {
             // Wait until the board width and height have been calculated before calculating the final offset
@@ -77,8 +79,9 @@ int main()
             o[1] = readNumerics(fp);
             ch = fgetc(fp);
         }
+    } while (ch != 'x');
 
-// Board dimensions
+    // Board dimensions
     int dim[2];
 #define board_width dim[0]
 #define board_height dim[1]
